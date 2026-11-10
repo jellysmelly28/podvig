@@ -45,8 +45,11 @@ export function toast(msg) {
   setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 2200);
 }
 
+// A <label> only wraps a single form control. Wrapping buttons (chips) in a label
+// makes iOS forward every tap to the first button, so those get a <div>.
 export const field = (label, input, hint) =>
-  h('label', { class: 'field' }, h('span', { class: 'flabel' }, label), input, hint ? h('span', { class: 'fhint' }, hint) : null);
+  h(['INPUT', 'SELECT', 'TEXTAREA'].includes(input.tagName) ? 'label' : 'div', { class: 'field' },
+    h('span', { class: 'flabel' }, label), input, hint ? h('span', { class: 'fhint' }, hint) : null);
 
 export function select(options, value) {
   const s = h('select', {}, options.map(([v, label]) => h('option', { value: v }, label)));
