@@ -1,5 +1,5 @@
 // Service worker: network-first, falls back to cache so the app works offline.
-const CACHE = 'podvig-v5';
+const CACHE = 'podvig-v6';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/app.js', 'js/db.js', 'js/store.js', 'js/logic.js', 'js/ui.js', 'js/dates.js', 'js/defaults.js',
